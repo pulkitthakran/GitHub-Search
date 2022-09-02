@@ -10,13 +10,13 @@ export default function Search({handleSearch, hasError, hasLoading}) {
     }
 
     return (
-        <form className="container formWrapper" onSubmit={handleSubmit}>
-            <input type="text" placeholder="Search GitHub username…" value={username}
+        <form className="form" onSubmit={handleSubmit}>
+            <input type="text" placeholder="Type the User Name" value={username}
                    onChange={e => (setUsername(e.target.value))} className="form-control"/>
 
-            <img src={searchIcon} alt="" className="floatIcon"/>
-            {hasError && <span className="errorMsg">no result found</span>}
-            <button className="btnSearch" disabled={hasLoading}>
+            <img src={searchIcon} alt="" className="search-icon"/>
+            {hasError && <span className="noResult">no result found</span>}
+            <button className="disableSearch" disabled={hasLoading}>
                 {hasLoading ? 'searching' : 'search'}
             </button>
         </form>

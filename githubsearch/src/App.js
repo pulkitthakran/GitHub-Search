@@ -7,7 +7,7 @@ import Search from './component/seachBar';
 function App() {
     const [user, setUser] = useState('');
     const [error, setError] = useState(false);
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
 
     useEffect(()=>{
         fetchUserData('pulkitthakran')
@@ -31,6 +31,7 @@ function App() {
                 setError(true)
             })
     }
+    console.log(fetchUserData);
     
   
     return (
