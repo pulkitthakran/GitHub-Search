@@ -3,6 +3,7 @@ import Header from "./component/header";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import Search from './component/seachBar';
+import Info from './component/info';
 
 function App() {
     const [user, setUser] = useState('');
@@ -16,7 +17,7 @@ function App() {
         setLoading(true)
         setUser('')
         fetchUserData(username)
-        console.log(username);
+        
     }
 
     function fetchUserData(username) {
@@ -31,13 +32,14 @@ function App() {
                 setError(true)
             })
     }
-    console.log(fetchUserData);
+   
     
   
     return (
         <>
             <Header/>         
             <Search handleSearch={handleSearch} hasError={error} hasLoading= {loading}/>
+            <Info userData={user} hasError={error} hasLoading={loading}/>
         </>
     );
 }
