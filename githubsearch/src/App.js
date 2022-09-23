@@ -1,14 +1,16 @@
 import './App.css';
 import Header from "./component/header";
 import {useEffect, useState} from "react";
-import axios from "axios";
+
 import Search from './component/seachBar';
 import Info from './component/info';
+import axios from axios;
 
 function App() {
     const [user, setUser] = useState('');
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
+
 
     useEffect(()=>{
         fetchUserData('pulkitthakran')
