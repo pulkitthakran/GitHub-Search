@@ -1,7 +1,6 @@
-import react, { useState } from "react";
-import moon from '../images/icon-moon.svg';
-import sun from '../images/icon-sun.svg';
-
+import React, {useState} from 'react';
+import moon from '../assets/icon-moon.svg';
+import sun from '../assets/icon-sun.svg';
 
 const INITIAL_THEME = {hint: 'dark', icon: moon};
 const CHECK_THEME = document.body.classList;
@@ -21,12 +20,12 @@ export default function Header() {
     }
 
     return (
-        <header className="header container">
-            <h1>DevFinder</h1>
+        <header className="pageHeader container">
+            <h1>Dev Finder</h1>
             <button onClick={handleToggle} className="toggleIcon">
                 <span>{toggleTheme.hint}</span>
                 <img src={toggleTheme.icon} alt=""/>
             </button>
         </header>
     )
-}   
+}

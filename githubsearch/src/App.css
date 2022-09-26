@@ -1,6 +1,4 @@
-*,
-::before,
-::after{
+*,::before,::after{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -10,8 +8,6 @@
   --btn-primary-bg: #0079FF;
   --btn-primary-hover-bg: #60ABFF;
   --no-result-color: #F74646;
-
-  /*==== Light theme colors ====*/
   --body-bg-color: #F6F8FF;
   --inner-bg-color:#FEFEFE;
   --logo-color:#222731;
@@ -36,13 +32,13 @@ body {
 }
 
 h1 {
-  font-size: 1.625em;
-  line-height: 1.46em;
+  font-size: 1.5em;
+  line-height: 1.5em;
   color: var(--logo-color);
 }
 
 h2 {
-  font-size: 1.375em;
+  font-size: 1.3em;
   line-height: 1.5em;
 }
 
@@ -53,7 +49,7 @@ h3 {
 }
 
 .container {
-  max-width: 50.69%;
+  max-width: 50%;
   margin: 0 auto;
 }
 
@@ -62,13 +58,11 @@ button {
   transition: opacity 400ms ease-in-out;
 }
 
-/***** Header Style *****/
-
 .pageHeader {
   display: flex;
   justify-content: space-between;
   margin-top: 9em;
-  margin-bottom: 2.25em;
+  margin-bottom: 6em;
 }
 
 .toggleIcon {
@@ -77,14 +71,14 @@ button {
 }
 
 .toggleIcon:hover{
-  opacity: .7;
+  opacity: 1;
 }
 
 .toggleIcon span{
   min-width: 40px;
   margin-right: 1rem;
   text-transform: uppercase;
-  font-size: 0.8125rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 
@@ -97,10 +91,11 @@ button {
 }
 
 .formWrapper {
-  box-shadow: 0 1em 1.875em rgba(70, 96, 187, 0.2);
+  box-shadow: 0 1em 2em rgba(70, 96, 187, 0.2);
   position: relative;
   border-radius: 15px;
   overflow: hidden;
+  
 }
 
 
@@ -110,23 +105,17 @@ button {
   padding: 0 7rem 0 5rem;
   border-color: transparent;
   border-radius: inherit;
-  font-size:1.125em ;
+  font-size:1em ;
   background-color: var(--inner-bg-color);
   color: var(--secondry-text-color);
 }
 
-.toggleIcon span,
-.form-control::placeholder,
-.bio,
-.single_info span,
-.account a
+.toggleIcon span,.form-control::placeholder,.bio,.single_info span,.account a
 {
   color: var(--secondry-text-color);
 }
 
-.btnSearch,
-.floatIcon,
-.errorMsg{
+.btnSearch,.floatIcon,.errorMsg{
   position: absolute;
   top: 50%;
   transform: translate(0,-50%);
@@ -138,7 +127,7 @@ button {
 
 .btnSearch {
   right: .6rem;
-  min-width: 106px;
+  min-width: 100px;
   height: 50px;
   border-radius: 10px;
   border-color: transparent;
@@ -167,24 +156,26 @@ button {
 
 .info,
 .info-header {
+  
   display: grid;
   grid-template-columns: 117px 1fr;
-  grid-gap: 0 2.3125em;
+  grid-gap: 0 2em;
 }
 
 .info {
-  margin-top: 1.5rem;
+  margin-top: 13rem;
   padding: 3rem;
   border-radius: 15px;
   background-color: var(--inner-bg-color);
   box-shadow: 0 1em 30px -10px rgba(70, 96, 187, 0.19);
-  margin-bottom: 9.0625rem;
+  margin-bottom: 9rem;
 }
 
 .dark-theme .formWrapper,
 .dark-theme .info{
   box-shadow: none;
 }
+
 
 .info-header {
   grid-column: 1/3;
@@ -205,13 +196,13 @@ button {
 .joined-date {
   position: absolute;
   right: 0;
-  top: .5em;
-  font-size: .9375em;
+  top: 0.5em;
+  font-size: 1em;
   color: var(--secondry-text-color);
 }
 
 .bio {
-  font-size: .9375em;
+  font-size: 1em;
 }
 
 .username {
@@ -227,15 +218,15 @@ button {
 
 .status {
   background-color: var(--body-bg-color);
-  margin: 2rem  0 2.3125rem 0;
+  margin: 2rem  0 2rem 0;
   display: flex;
   justify-content: space-around;
-  padding: .9375rem 0 1.0625rem 0;
+  padding: 1rem 0 1rem 0;
   border-radius: 15px;
 }
 
 .single_info span{
-  font-size: 0.8125rem;
+  font-size: 1rem;
 }
 
 .single_info h2 {
@@ -245,8 +236,9 @@ button {
 .social-accounts {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 1em 3.875em;
-  font-size: .9375rem;
+  grid-gap: 1em 4em;
+  
+  font-size: 1rem;
   color: var(--secondry-text-color);
 }
 
@@ -258,22 +250,21 @@ button {
   fill: var(--secondry-text-color);
 }
 
-.account span,
-.account a {
+.account span,.account a {
   margin-left: 1em;
 }
 
 .account.not-available {
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .account a {
   text-decoration: none;
 }
 
-.account a:hover,
-.username:hover {
+.account a:hover,.username:hover {
   text-decoration: underline;
+  
 }
 
 
@@ -310,7 +301,7 @@ button {
   padding-top: .3em;
 }
 
-@media (max-width: 1099px) {
+@media (max-width: 1000px) {
     .container {
       max-width: 75%;
     }
@@ -329,7 +320,7 @@ button {
   }
 }
 
-@media (max-width: 598px) {
+@media (max-width: 600px) {
 
   .container {
     max-width: 85%;
@@ -341,11 +332,11 @@ button {
   }
 
   header h1 {
-    font-size: 1.625em;
+    font-size: 1em;
   }
 
   .pageHeader {
-    margin-bottom: 2.1875rem;
+    margin-bottom: 2rem;
     margin-top: 2rem;
   }
 
@@ -355,7 +346,7 @@ button {
   }
 
   .info-header {
-    grid-gap: 1.1875rem;
+    grid-gap: 1rem;
     grid-template-columns: 70px 1fr;
   }
   .btnSearch {
@@ -364,7 +355,7 @@ button {
   }
 
   .form-control {
-    font-size: .8125rem;
+    font-size: 1rem;
     padding: 0 6rem 0 3rem;
     height: 60px;
   }
@@ -381,3 +372,4 @@ button {
 @media (prefers-reduced-motion: no-preference) {
 
 }
+
