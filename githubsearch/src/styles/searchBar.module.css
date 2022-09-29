@@ -1,0 +1,83 @@
+* {
+  font-family: Space Mono, monospace;
+}
+
+.userInput {
+  color: white;
+  border: none;
+  font-size: larger;
+  justify-content: center;
+  background-color: transparent;
+  outline: none;
+  flex: 1;
+  width: 44vw;
+  /* margin-bottom: 14px; */
+}
+.userInput::placeholder {
+  color: #fcfcfc;
+}
+
+.userSearchButton {
+  background-color: #2c58fe;
+  border-radius: 19px;
+  border: none;
+  height: 35px;
+  width: 80px;
+  color: white;
+  letter-spacing: 1px;
+  margin-top: 1px;
+  font-size: smaller;
+}
+.userSearchBar {
+  border-radius: 100px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+  width: 54vw;
+}
+.mainSearchBar {
+  border-radius: 25px;
+  justify-content: center;
+  background-color: #1f2a48;
+  margin-left: 25vw;
+  margin-top: 3vh;
+  padding: 1%;
+  /* width: 54vw; */
+  align-items: center;
+  /* height: 5vh; */
+}
+
+@media (max-width: 900px) {
+  .mainSearchBar {
+    background-color: #1f2a48;
+    border-radius: 8px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    height: 20px;
+    align-items: center;
+    width: 42vw;
+    margin-left: 28vw;
+  }
+  .userInput {
+    color: white;
+    border: none;
+    justify-content: center;
+    background-color: transparent;
+    font-size: medium;
+    width: 44vh;
+  }
+  .userSearchBar {
+    background-color: #1f2a48;
+    border-radius: 20px;
+    width: 67vw;
+  }
+  .userSearchButton {
+    border-radius: 20px;
+    margin-top: 1vh;
+    margin-right: 2vw;
+    height: 35px;
+    width: 76px;
+  }
+}
