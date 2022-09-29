@@ -156,7 +156,6 @@ button {
 
 .info,
 .info-header {
-  
   display: grid;
   grid-template-columns: 117px 1fr;
   grid-gap: 0 2em;
@@ -193,16 +192,11 @@ button {
   position: relative;
 }
 
-.joined-date {
-  position: absolute;
-  right: 0;
-  top: 0.5em;
-  font-size: 1em;
-  color: var(--secondry-text-color);
-}
-
 .bio {
+  flex: auto;
+  display: flex;
   font-size: 1em;
+  margin: 0  0rem 2rem 15; 
 }
 
 .username {
@@ -215,10 +209,9 @@ button {
   margin-top: -2em;
 }
 
-
 .status {
   background-color: var(--body-bg-color);
-  margin: 2rem  0 2rem 0;
+  margin: 11rem  0 2rem 0;
   display: flex;
   justify-content: space-around;
   padding: 1rem 0 1rem 0;
@@ -237,7 +230,6 @@ button {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 1em 4em;
-  
   font-size: 1rem;
   color: var(--secondry-text-color);
 }
@@ -370,6 +362,6 @@ button {
   }
 }
 @media (prefers-reduced-motion: no-preference) {
-
+  
 }
 

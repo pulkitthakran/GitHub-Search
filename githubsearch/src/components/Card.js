@@ -21,9 +21,11 @@ export default function info({userData, hasError, hasLoading}) {
                         </div>
                     </div>
                     <div className="info">
-                        <p className="bio">
-                            {bio !== null ? bio : 'This profile has no bio'}
-                        </p>
+                        <div>
+                            <p className="bio">
+                                {bio !== null ? bio : 'This profile has no bio'}
+                            </p>
+                        </div>
                         <div className="status">
                             <div className="single_info">
                                 <span>Repos</span>
@@ -32,7 +34,7 @@ export default function info({userData, hasError, hasLoading}) {
                             <div className="single_info">
                                 <span>Followers</span>
                                 <h2>{followers}</h2>
-                            </div>
+                            </div>  
                             <div className="single_info">
                                 <span>Following</span>
                                 <h2>{following}</h2>
@@ -64,6 +66,7 @@ export default function info({userData, hasError, hasLoading}) {
                     </div>
                 </>
                 :
+                
 
                 hasError
                     ?
