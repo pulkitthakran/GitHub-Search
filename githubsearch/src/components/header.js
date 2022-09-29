@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-// import ModeNightIcon from "@mui/icons-material/NightlightRoundSharp";
-// import LightModeIcon from "@mui/icons-material/LightMode";
 import { ModeNightOutlined, LightModeOutlined } from "@mui/icons-material";
 
 function Header(props) {

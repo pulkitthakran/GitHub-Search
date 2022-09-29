@@ -30,7 +30,11 @@ header {
 }
 #change-theme-name {
   font-size: large;
-  color: rgb(167, 9, 9);
+  color: white;
+}
+#change-theme-name.dark-theme{
+  font-size: large;
+  color: black;
 }
 @media (max-width: 900px) {
   main {
@@ -44,7 +48,7 @@ header {
   }
   .header-title {
     font-size: large;
-    color: rgb(167, 9, 9);
+    
   }
   .icon-dark {
     margin-inline-start: 60%;
