@@ -2,6 +2,7 @@ import React from "react";
 import styles from "../styles/listItem.module.css";
 
 const ListItem = ({ data, handleSubmit }) => {
+  // console.log('list', data);
   return (
     <div className={styles.box}>
       {data &&
@@ -10,7 +11,7 @@ const ListItem = ({ data, handleSubmit }) => {
           return (
             <>
               <ul>
-                <li key={val.id}>
+                <li key={index}>
                   <button
                     type="submit"
                     className={styles.btn}

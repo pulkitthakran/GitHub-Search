@@ -3,9 +3,9 @@ import React, { useCallback, useEffect, useState } from "react";
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import styles from "../styles/searchBar.module.css";
 import { useSearchParams } from "react-router-dom";
-import axios from "axios";
 import ListItem from "../components/ListItem";
 import UserCard from "./userCard";
+import { getProfile, getSearchProfile } from "../api/profile";
 
 const SearchBar = ({ setUserData, userData }) => {
   let [searchParams, setSearchParams] = useSearchParams();
@@ -15,39 +15,32 @@ const SearchBar = ({ setUserData, userData }) => {
   const [userFlag, setUserFlag] = useState(false);
   const [userList, setUserList] = useState([]);
 
-  function debounce(func, timeout = 300) {
-    let timer;
-    return (...args) => {
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        func.apply(this, args);
-      }, timeout);
-    };
-  }
-  
+  // function debounce(func, timeout = 300) {
+  //   let timer;
+  //   return (...args) => {
+  //     clearTimeout(timer);
+  //     timer = setTimeout(() => {
+  //       func.apply(this, args);
+  //     }, timeout);
+  //   };
+  // }
 
-  const apiCall = useCallback(
-    debounce(async (searchParams) => {
-      const url = `https://api.github.com/search/users?q=${searchParams.get(
-        "q"
-      )}&per_page=10`;
+  const getProfileData = useCallback(async (userName) => {
+    try {
+      console.log(userName);
+      let a = await getProfile(userName);
+      setUserData(a.data);
+      setUserFlag(true);
+    } catch (error) {
+      console.log(error);
+    }
+  }, [setUserData]);
 
-      const response = await fetch(url).catch((err) => console.log(err));
-      
-
-      const user = await response.json();
-
-      setUserList(user.items);
-      
-    }, 1000),
-    [userList, userFlag]
+  const getProfileList = useCallback(async (userName) => {
+      const response = await getSearchProfile(userName);
+      setUserList(response.data.items);
+    }, []
   );
-
-  useEffect(() => {
-    if (searchParams.get("q") && typeof searchParams.get("q") === "string")
-      apiCall(searchParams);
-    
-  }, [searchParams]);
 
   const handleChange = useCallback(
     (e) => {
@@ -55,39 +48,32 @@ const SearchBar = ({ setUserData, userData }) => {
       setUserFlag(false);
       e.preventDefault();
       setInputText(e.target.value);
-      setSearchParams({ ...searchParams, q: e.target.value });
+      getProfileList(e.target.value);
+
+      // setSearchParams({ ...searchParams, q: e.target.value });
     },
-    [inputText, flag, searchParams]
+    [getProfileList, searchParams, setSearchParams]
   );
-  useEffect(() => {
-    if (inputText) {
-      setSearchParams({ ...searchParams, q: inputText });
-    }
-  }, [inputText]);
-
-  const getData = useCallback(async () => {
-    try {
-      let a = await axios.get(
-        `https://api.github.com/users/${searchParams.get("q")}`
-      );
-      console.log(a.data);
-      setUserData(a.data);
-      setFlag(false);
-      setUserFlag(true);
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
 
   useEffect(() => {
-    ((e) => {
-      searchParams.get("status") === "true" && getData();
-    })();
-  }, [getData, searchParams]);
+    if (searchParams.get("q") && typeof searchParams.get("q") === "string")
+      getProfileData(searchParams.get('q'));    
+  }, [getProfileData, searchParams]);
+
+  // useEffect(() => {
+  //   if (inputText) {
+  //     setSearchParams({ ...searchParams, q: inputText });
+  //   }
+  // }, [inputText, searchParams, setSearchParams]);
+
+  // useEffect(() => {
+  //   ((e) => {
+  //     searchParams.get("status") === "true" && getProfileData(searchParams.get('q'));
+  //   })();
+  // }, [getProfileData, searchParams]);
 
   const handleSubmit = useCallback(
     async (e) => {
-      console.log(e.target.value);
       e.preventDefault();
       setInputText(e.target.value);
       const searchValue = e.target.value
@@ -95,18 +81,19 @@ const SearchBar = ({ setUserData, userData }) => {
         : searchParams.get("q");
 
       try {
-        let a = await axios.get(`https://api.github.com/users/${searchValue}`);
-        console.log(a.data);
+        console.log(searchValue);
+        let a = await getProfile(searchValue);
         setUserData(a.data);
         setUserList([]);
-        console.log(e.target.value);
         setFlag(false);
         setUserFlag(true);
+        setSearchParams({ ...searchParams, q: e.target.value });
+
       } catch (e) {
         console.log(e);
       }
     },
-    [searchParams, userFlag, flag, inputText]
+    [searchParams, setSearchParams, setUserData]
   );
 
   

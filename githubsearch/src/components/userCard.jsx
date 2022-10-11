@@ -7,7 +7,6 @@ import BusinessIcon from '@mui/icons-material/Business';
 import { Grid, Typography } from "@mui/material";
 function UserCard(props) {
   const { data } = props;
-  const date = new Date("2022-06-17");
   return (
     <div className={styles.userCard}>
       <div className={styles.userCardUserAvatarWraper}>

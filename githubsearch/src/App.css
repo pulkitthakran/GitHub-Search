@@ -30,7 +30,7 @@ header {
 }
 #change-theme-name {
   font-size: large;
-  color: white;
+  color: rgb(167, 9, 9);
 }
 #change-theme-name.dark-theme{
   font-size: large;
